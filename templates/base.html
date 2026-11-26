@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIGCE - Prueba de Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+  </head>
+  <body class="bg-light">
+
+    <!-- Barra superior azul -->
+    <nav class="navbar navbar-dark bg-primary">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">SIGCE</span>
+      </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container my-5">
+      <div class="card shadow-sm mx-auto" style="max-width: 720px;">
+        <div class="card-body text-center py-5">
+          <h1 class="text-primary fw-bold">Sistema Integral de Gestión de Conciliación Extrajudicial</h1>
+          <p class="text-muted">Prueba de integración de Bootstrap 5.3</p>
+
+          <div class="alert alert-success my-4" role="alert">
+            ¡Bootstrap se ha incorporado correctamente!
+          </div>
+
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ventanaPrueba">
+            Probar componente
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ventana modal de prueba -->
+    <div class="modal fade" id="ventanaPrueba" tabindex="-1" aria-labelledby="ventanaPruebaLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ventanaPruebaLabel">Prueba de Bootstrap</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            El componente JavaScript de Bootstrap funciona correctamente.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous"></script>
+  </body>
+</html>
