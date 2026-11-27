@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}SIGCE{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'core/style.css' %}">
+</head>
+<body>
+  {% block guest %}
+    <div class="sidebar">
+      <div class="logo">
+        <span class="logo-icon">S</span>
+        <div>
+          SIGCE
+          <small>CONCILIACIÓN EXTRAJUDICIAL</small>
+        </div>
+      </div>
+
+      <div class="nav-label">Principal</div>
+      <nav>
+        <a href="{% url 'dashboard' %}">Panel</a>
+        <a href="{% url 'solicitudes' %}">Solicitudes</a>
+        <a href="{% url 'solicitud_nueva' %}">Nueva solicitud</a>
+        {% if user.is_superuser or user.groups.all %}
+          <a href="{% url 'usuarios' %}">Usuarios</a>
+        {% endif %}
+      </nav>
+
+      <div class="side-bottom">
+        <span class="little-dot"></span>Sistema activo
+        <small>Sprint 01 · Gestión de expedientes</small>
+      </div>
+    </div>
+
+    <div class="workspace">
+      <header class="topbar">
+        <div>
+          <strong>SIGCE</strong>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px;">
+          {% if user.is_authenticated %}
+            <span>{{ user.username }}</span>
+            <form method="post" action="{% url 'logout' %}" style="margin:0;">
+              {% csrf_token %}
+              <button type="submit" class="btn-primary">Cerrar sesión</button>
+            </form>
+          {% endif %}
+        </div>
+      </header>
+
+      <main class="page-content">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert {{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  {% endblock %}
+
+  <script src="{% static 'core/app.js' %}"></script>
+</body>
+</html>
